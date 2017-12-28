@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html data-ng-app="udacity.grading" data-enforce-browser lang="en">
+  <head>
+    <!--[if lte IE 9]>
+    <script type="text/javascript">
+      window.location = 'https://www.udacity.com/upgrade';
+    </script>
+    <![endif]-->
+    <title>Udacity Reviews</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
+    <meta name="description" content="Discover online classes taught by top instructors and industry experts. Take courses at your own pace.">
+
+    <meta name="robots" content="noodp"/>
+
+    <!--
+      These properties are here so social shares of review pages works
+      properly. We decided to let them apply to every page on the site
+      because we only expect people to share the review pages.
+
+      Guidelines obtained from https://moz.com/blog/meta-data-templates-123
+    -->
+
+    <!-- facebook -->
+    <meta property="og:title" content="Look at my Udacity Project Feedback!" />
+    <meta property="og:description" content="A review of my work and personalized tips to improve.">
+    <meta property="og:image" content="https://s3-us-west-1.amazonaws.com/udacity-content/images/reviews/facebook-thumbnail-neutral.png "/>
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@udacity">
+    <meta name="twitter:title" content="Udacity Project Feedback">
+    <meta name="twitter:description" content="A review of my work and personalized tips to improve.">
+    <!-- "Twitter Summary card images must be at least 120x120px" -->
+    <meta name="twitter:image" content="https://s3-us-west-1.amazonaws.com/udacity-content/images/reviews/twitter-thumbnail-neutral.png ">
+
+    <meta name="application-name" content="Udacity"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="assets/img/logos/udacity/windows_tile/udacity-full-144x144.png"/>
+
+    <meta name="google-site-verification" content="ELX2btu3VElBKIdvkGj5ESBnJh_Dg9PnWjuCwVkPEkA"/>
+
+    <meta http-equiv="X-UA-Compatible" content="requiresActiveX=true"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+    <link type="text/plain" rel="author" href="http://udacity.com/humans.txt"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/udacity-base.min.css" type="text/css">
+    <link ng-if="googleBranded" rel="stylesheet" href="/assets/css/materialize.min.css" type="text/css">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/assets/grading_ad3a28e9.css">
+    <!-- endinject -->
+
+    <style>
+    @font-face {
+      font-family: 'Glyphicons Halflings';
+
+      src: url('/assets/fonts/glyphicons/glyphicons-halflings-regular.eot');
+      src: url('/assets/fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/glyphicons/glyphicons-halflings-regular.woff2') format('woff2'), url('/assets/fonts/glyphicons/glyphicons-halflings-regular.woff') format('woff'), url('/assets/fonts/glyphicons/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/fonts/glyphicons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    }
+    </style>
+    <script type="text/javascript">
+      var segment_write_key = "toT8LUD8hh9KKz18k1i8l8AnAJlF27VY"; // production key for segment
+    </script>
+    <script type="text/javascript">
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load(segment_write_key);
+      }}();
+    </script>
+
+  </head>
+  <body data-modal-anti-scroll-helper class="responsive ng-class:{'google-certs': googleBranded}" ng-controller="MainCtrl as main">
+    <div ng-include="main.pageContext.headerURL"></div>
+    <div id="page-content" data-qualaroo-survey-info-hack>
+      <div loading-container class="container-fluid">
+        <div alert-box></div>
+        <div ui-view autoscroll='true'></div>
+      </div>
+    </div>
+
+    <div ng-include="main.pageContext.footerURL"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/airbrake/airbrake-shim.js" data-airbrake-project-id="108424" data-airbrake-project-key="585b2c42b7a3ccfb360e6b1461185702" data-airbrake-environment-name="production"></script>
+    <script data-airbrake-onload="initAirbrake">
+      function initAirbrake() {
+        Airbrake.addFilter(function (notice) {
+          console.log(notice);
+          return true;
+        });
+      }
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+
+    <!-- inject:js -->
+    <script src="/assets/_vendor_549a7b2f.js"></script>
+    <script src="/assets/grading_549a7b2f.js"></script>
+    <script src="/assets/js/airbrake/airbrake-shim.js"></script>
+    <!-- endinject -->
+  </body>
+</html>

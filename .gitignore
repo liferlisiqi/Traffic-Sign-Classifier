@@ -1,0 +1,10 @@
+# ignore the origin data in the folder: traffic-signs-data
+traffic-signs-data/
+
+# ignore the preprocessed data in the folder:pre-traffic-signs-data
+pre-traffic-signs-data/
+
+# ignore the preprocessed data in the folder: model
+model/lenet.ckpt.meta
+
+

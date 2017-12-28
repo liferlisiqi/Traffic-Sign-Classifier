@@ -1,0 +1,26 @@
+# ignore the origin data in the folder: P2-traffic-sign-classifier/traffic-signs-data
+P2-traffic-sign-classifier/traffic-signs-data/
+
+# ignore the preprocessed data in the folder: P2-traffic-sign-classifier/pre-traffic-signs-data
+P2-traffic-sign-classifier/pre-traffic-signs-data/
+
+# ignore the preprocessed data in the folder: P2-traffic-sign-classifier/model
+P2-traffic-sign-classifier/model/lenet.ckpt.meta
+
+# ignore the preprocessed data in the folder: P3-behavioral-cloneing/sample_data
+P3-behavioral-cloneing/sample_data/
+
+# ignore the preprocessed data in the folder: P3-behavioral-cloneing/my_data
+P3-behavioral-cloneing/my_data/
+
+# ignore the preprocessed data in the folder: P3-behavioral-cloneing/pre-data
+P3-behavioral-cloneing/predata.pickle
+
+# ignore the preprocessed data in the folder: P3-behavioral-cloneing/linux_sim
+P3-behavioral-cloneing/linux_sim/
+
+# ignore the preprocessed data in the folder: L11-transfer-learning/train.p
+L11-transfer-learning/train.p
+
+# ignore the preprocessed data in the folder: L11-transfer-learning/bvlc-alexnet.npy
+L11-transfer-learning/bvlc-alexnet.npy
