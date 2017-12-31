@@ -25,7 +25,7 @@ Both of the above two docker images can be used for training model, however, the
 
 ### Dataset
 
-Download the data set. This is a pickled dataset in which the images are already resized to 32x32. It contains a training, validation and test set.
+Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip). This is a pickled dataset in which the images are already resized to 32x32. It contains a training, validation and test set.
 
 
 [//]: # (Image References)
