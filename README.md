@@ -84,7 +84,7 @@ My model is based on LeNet and it consists of the following layers:
 | Fully connected		| output 43 probabilities for each lablel  		| 200       | 43          |
 
  
-My first architecure is LeNet, but it's performance is poor. In my opinion, it is bacause LeNet model seem doesn't include enough parameters, that accuracy is low. Therefore, , I add a convolutional layer and a fully connect layer to increase accuracy. Then, I find that the accuracy on training set is up to 97%, but that of testing set is under 93%, the model may be overfitting. So I add dropout to the first three fully connect layer, and successfully, the accuracy on testing set can reach 95%.
+My first architecure is LeNet, but it's performance is poor. In my opinion, it is bacause LeNet model doesn't include enough parameters. Therefore, , I add a convolutional layer and a fully connect layer to increase accuracy. Then, I find that the accuracy on training set is up to 97%, but that of testing set is under 93%, the model may be overfitting. So I add dropout to the first three fully connect layer, and successfully, the accuracy on testing set can reach 95%.
 
 
 Training 
