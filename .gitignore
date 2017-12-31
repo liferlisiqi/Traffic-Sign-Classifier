@@ -4,6 +4,8 @@ pre-traffic-signs-data/
 
 model/lenet.ckpt.meta
 
+.ipynb_checkpoints/
+
 *~
 
 
