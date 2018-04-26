@@ -1,4 +1,4 @@
-## Traffic Sign Classification
+# Traffic Sign Classification
 
 Overview
 ---
@@ -23,7 +23,6 @@ tensorflow-gpu (1.4.1)
 sklearn (0.19.1)
 
 ### Dataset
-
 Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip). This is a pickled dataset in which the images are already resized to 32x32. It contains a training, validation and test set.
 
 
@@ -169,3 +168,8 @@ The first 5 **softmax probabilities** for each images are as follows (rounded to
 
 We can see that all the 10 images can be correctly recognized by looking at the softmax probabilities. Which means the model can almost be used for recognizing traffic signs. :)
 
+References
+---
+[Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition]
+(https://www.sciencedirect.com/science/article/pii/S0893608012000457?via%3Dihub)  
+[Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://219.216.82.193/cache/13/03/yann.lecun.com/a46bf8e4b17c2a9e46a2a899a68a0a0d/sermanet-ijcnn-11.pdf)
