@@ -15,19 +15,19 @@ The goals / steps of this project are the following:
 * Summarize the results
 
 ### Dependencies
-python3.5
-matplotlib (2.1.1)
-opencv-python (3.3.1.11)
-numpy (1.13.3)
-tensorflow-gpu (1.4.1)
-sklearn (0.19.1)
+python3.5  
+matplotlib (2.1.1)  
+opencv-python (3.3.1.11)  
+numpy (1.13.3)  
+tensorflow-gpu (1.4.1)  
+sklearn (0.19.1)  
 
 ### Dataset
 Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip). This is a pickled dataset in which the images are already resized to 32x32. It contains a training, validation and test set.
 
 
 [//]: # (Image References)
-[image1]: ./trainingset.jpg "Visualization"
+[image1]: ./result_images/trainingset.jpg "Visualization"
 [image2]: ./test_images/1.jpg "Traffic Sign 1"
 [image3]: ./test_images/2.jpg "Traffic Sign 2"
 [image4]: ./test_images/3.jpg "Traffic Sign 3"
@@ -170,6 +170,5 @@ We can see that all the 10 images can be correctly recognized by looking at the 
 
 References
 ---
-[Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition]
-(https://www.sciencedirect.com/science/article/pii/S0893608012000457?via%3Dihub)  
+[Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition](https://www.sciencedirect.com/science/article/pii/S0893608012000457?via%3Dihub)  
 [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://219.216.82.193/cache/13/03/yann.lecun.com/a46bf8e4b17c2a9e46a2a899a68a0a0d/sermanet-ijcnn-11.pdf)
