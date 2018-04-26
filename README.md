@@ -1,5 +1,4 @@
 ## Traffic Sign Classification
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Overview
 ---
@@ -16,12 +15,12 @@ The goals / steps of this project are the following:
 * Summarize the results
 
 ### Dependencies
-This lab requires docker images:
-
-* [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit)
-* [gcr.io/tensorflow/tensorflow:latest-gpu](https://tensorflow.google.cn/install/install_linux?hl=zh-cn)
-
-Both of the above two docker images can be used for training model, however, the first is based on CPU and the second based on GPU.
+python3.5
+matplotlib (2.1.1)
+opencv-python (3.3.1.11)
+numpy (1.13.3)
+tensorflow-gpu (1.4.1)
+sklearn (0.19.1)
 
 ### Dataset
 
@@ -30,18 +29,16 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 
 [//]: # (Image References)
 [image1]: ./trainingset.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./test_images/1.jpg "Traffic Sign 1"
-[image5]: ./test_images/2.jpg "Traffic Sign 2"
-[image6]: ./test_images/3.jpg "Traffic Sign 3"
-[image7]: ./test_images/4.jpg "Traffic Sign 4"
-[image8]: ./test_images/5.jpg "Traffic Sign 5"
-[image9]: ./test_images/6.jpg "Traffic Sign 6"
-[image10]: ./test_images/7.jpg "Traffic Sign 7"
-[image11]: ./test_images/8.jpg "Traffic Sign 8"
-[image12]: ./test_images/9.jpg "Traffic Sign 9"
-[image13]: ./test_images/10.jpg "Traffic Sign 10"
+[image2]: ./test_images/1.jpg "Traffic Sign 1"
+[image3]: ./test_images/2.jpg "Traffic Sign 2"
+[image4]: ./test_images/3.jpg "Traffic Sign 3"
+[image5]: ./test_images/4.jpg "Traffic Sign 4"
+[image6]: ./test_images/5.jpg "Traffic Sign 5"
+[image7]: ./test_images/6.jpg "Traffic Sign 6"
+[image8]: ./test_images/7.jpg "Traffic Sign 7"
+[image9]: ./test_images/8.jpg "Traffic Sign 8"
+[image10]: ./test_images/9.jpg "Traffic Sign 9"
+[image11]: ./test_images/10.jpg "Traffic Sign 10"
 
 Data Set Summary & Exploration & Preprocessing
 ---
@@ -110,8 +107,8 @@ Testing
 
 Here are ten German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image7] ![alt text][image8]
-![alt text][image9] ![alt text][image10] ![alt text][image11] ![alt text][image12] ![alt text][image13]  
+![alt text][image2] ![alt text][image3] ![alt text][image4] ![alt text][image5] ![alt text][image6]
+![alt text][image7] ![alt text][image8] ![alt text][image9] ![alt text][image10] ![alt text][image11]  
 
 The label for each sign is: [0, 1, 3, 5, 8, 23, 26, 30 ,32, 42]
 
