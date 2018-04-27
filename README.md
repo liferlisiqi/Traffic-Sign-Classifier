@@ -28,6 +28,7 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 
 [//]: # (Image References)
 [image1]: ./result_images/trainingset.jpg "Visualization"
+[lenet]: ./result_images/lenet.png "lenet"
 [image2]: ./test_images/1.jpg "Traffic Sign 1"
 [image3]: ./test_images/2.jpg "Traffic Sign 2"
 [image4]: ./test_images/3.jpg "Traffic Sign 3"
@@ -61,7 +62,10 @@ So I normalized the image data from [0, 255] to [-1, 1], because well distribute
 
 [LeNet.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/LeNet.ipynb)
 ---
-The [LeNet](http://219.216.82.193/cache/10/03/yann.lecun.com/b1a1c4acb57f1b447bfe36e103910875/lecun-01a.pdf) model is proposed by Yann LeCun in 1998, it is the most classific cnn model for image recognition
+The [LeNet](http://219.216.82.193/cache/10/03/yann.lecun.com/b1a1c4acb57f1b447bfe36e103910875/lecun-01a.pdf) model is proposed by Yann LeCun in 1998, it is the most classific cnn model for image recognition, its architecture is as following: 
+
+![alt text][lenet]
+
 In the LeNet model, I realize valline cnn architecture and use three tricks as follows:
 
 - 1 ReLu  
