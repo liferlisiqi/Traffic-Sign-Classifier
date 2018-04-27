@@ -59,11 +59,14 @@ I didn't convert the images to grayscale as suggest in class, in my opinion, the
 So I normalized the image data from [0, 255] to [-1, 1], because well distributed data well accelate training operation and increase accuracy.
 
 
-Model Architecture
+LeNet
 ---
 
-
 My model is based on LeNet and it consists of the following layers:
+
+- ReLu
+- Mini-batch gradient descent
+- Dropout
 
 | Layer         		|     Description	        					| Input     | Output      |
 |:---------------------:|:---------------------------------------------:|:---------:|:-----------:| 
@@ -100,8 +103,57 @@ The results are:
 * accuracy of validation set: 96.6%
 * accuracy of test set: 94.9%
 
+AlexNet
+---
 
-Testing
+My model is based on LeNet and it consists of the following layers:
+
+- L2 regulization
+- Learning rate decay
+- Data augmentation
+
+| Layer         		|     Description	        					| Input     | Output      |
+|:---------------------:|:---------------------------------------------:|:---------:|:-----------:| 
+| Convolution       	| kernel: 5x5; stride:1x1; padding: valid  	    | 32x32x3   | 28x28x9     |
+| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid 	    | 28x28x9   | 14x14x9     |
+| Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 14x14x9   | 12x12x32    |
+| Max pooling	      	| kernel: 2x2; stride:1x1; padding: valid  		| 12x12x32  | 10x10x32    |
+| Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 10x10x32  | 8x8x96      |
+| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid  	    | 8x8x96    | 4x4x96      |
+| Flatten				| Input 5x5x32 -> Output 800					| 4x4x96    | 1536        |
+| Fully connected		| connect every neurel with next layer 		    | 1536      | 800         |
+| Fully connected		| connect every neurel with next layer	        | 800       | 400         |
+| Fully connected		| connect every neurel with next layer  		| 400       | 200         |
+| Fully connected		| output 43 probabilities for each lablel  		| 200       | 43          |
+
+ 
+My first architecure is LeNet, but it's performance is poor. In my opinion, it is bacause LeNet model doesn't include enough parameters. Therefore, , I add a convolutional layer and a fully connect layer to increase accuracy. Then, I find that the accuracy on training set is up to 97%, but that of testing set is under 93%, the model may be overfitting. So I add dropout to the first three fully connect layer, and successfully, the accuracy on testing set can reach 95%.
+
+
+Training 
+---
+I have turned the following three hyperparameters to train my model.
+* LEARNING_RATE = 0.0006
+* EPOCHS = 35
+* BATCH_SIZE = 128
+
+The suggestion for learning rate is 0.01, I decrease learning rate from 0.01 to 0.006, in case ignore the best point. And I increase epoch from 10 to 35, cause I think 10 epoch isn't enough to complete training.
+
+By the way, the docker image: udacity/carnd-term1-starter-kit are used for data preprossing and the docker image: gcr.io/tensorflow/tensorflow:latest-gpu is used for training.
+
+
+The results are:
+* accuracy of training set: 99.7%
+* accuracy of validation set: 96.6%
+* accuracy of test set: 94.9%  
+
+| Dataset         		|   Accuracy	|
+|:---------------------:|:-------------:|
+| training set       	| 99.7%  	    |
+| validation set	    | 96.6% 	    |
+| testing set       	| 94.9% 	    |
+
+Testing on new images
 ---
 
 Here are ten German traffic signs that I found on the web:
@@ -173,4 +225,5 @@ References
 [The German Traffic Sign Recognition Benchmark](http://benchmark.ini.rub.de/?section=gtsrb&subsection=news)  
 [Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition](https://www.sciencedirect.com/science/article/pii/S0893608012000457?via%3Dihub)  
 [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://219.216.82.193/cache/13/03/yann.lecun.com/a46bf8e4b17c2a9e46a2a899a68a0a0d/sermanet-ijcnn-11.pdf)  
-[The German Traffic Sign Recognition Benchmark: A multi-class classification competition](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6033395)
+[The German Traffic Sign Recognition Benchmark: A multi-class classification competition](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6033395)  
+[ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)  
