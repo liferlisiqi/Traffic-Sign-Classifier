@@ -66,7 +66,7 @@ The [LeNet](http://219.216.82.193/cache/10/03/yann.lecun.com/b1a1c4acb57f1b447bf
 
 ![alt text][lenet]
 
-In the LeNet model, I realize valline cnn architecture and use three tricks as follows:
+In the LeNet architecture I realized for traffic signs recognition, three tricks as used as follows:
 
 - 1 ReLu  
 ReLu nonlinear function is used as the activation function after the convolutional layer. More information about ReLu and other activation functions can be find at [Lecture 6 | Training Neural Networks I](https://www.youtube.com/watch?v=wEoyxE0GP2M&index=6&list=PLC1qU-LWwrF64f4QKQT-Vg5Wr4qEE1Zxk&t=0s).  
