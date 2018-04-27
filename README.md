@@ -39,7 +39,7 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 [image10]: ./test_images/9.jpg "Traffic Sign 9"
 [image11]: ./test_images/10.jpg "Traffic Sign 10"
 
-[Data Preprocessing](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/Data%20pre-process.ipynb)
+[Data pre-process.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/Data%20pre-process.ipynb)
 ---
 
 I used the numpy library to calculate summary statistics of the traffic signs data set:
@@ -59,16 +59,16 @@ I didn't convert the images to grayscale as suggest in class, in my opinion, the
 So I normalized the image data from [0, 255] to [-1, 1], because well distributed data well accelate training operation and increase accuracy.
 
 
-[LeNet](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/LeNet.ipynb)
+[LeNet.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/LeNet.ipynb)
 ---
-
+The [LeNet](http://219.216.82.193/cache/10/03/yann.lecun.com/b1a1c4acb57f1b447bfe36e103910875/lecun-01a.pdf) model is proposed by Yann LeCun in 1998, it is the most classific cnn model for image recognition
 In the LeNet model, I realize valline cnn architecture and use three tricks as follows:
 
-- 1 ReLu
+- 1 ReLu  
 ReLu nonlinear function is used as the activation function after the convolutional layer. More information about ReLu and other activation functions can be find at [Lecture 6 | Training Neural Networks I](https://www.youtube.com/watch?v=wEoyxE0GP2M&index=6&list=PLC1qU-LWwrF64f4QKQT-Vg5Wr4qEE1Zxk&t=0s).  
-- 2 Mini-batch gradient descent
+- 2 Mini-batch gradient descent  
 Mini-batch gradient descent is the combine of batch gradient descent and stochastic gradient descent, it is based on the statistics to estimate the average of gradient of all the training data by a batch of selected samples.
-- 3 Dropout
+- 3 Dropout  
 Dropout is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data. It is proposed in the paper [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](http://219.216.82.193/cache/2/03/jmlr.org/9b2dcdb089f9b8f19cea175c9d6b5150/srivastava14a.pdf). It is usually after fully connected layers.
 
 My LeNet consists of the following layers:
@@ -87,19 +87,20 @@ My LeNet consists of the following layers:
 
 Training 
 ---
-I have turned the following three hyperparameters to train my model.
-LEARNING_RATE = 1e-2
-EPOCHS = 50
-BATCH_SIZE = 128
+I have turned the following three hyperparameters to train my model.  
+LEARNING_RATE = 1e-2  
+EPOCHS = 50  
+BATCH_SIZE = 128  
+It takes about 2 minutes to train the model on GetForce 750 ti.
 
 The results are:
 * accuracy of training set: 96.6%
 * accuracy of validation set: 92.0%
 * accuracy of test set: 89.7%
 
-We can see that the model is overfitting to the training data, it is not very good.
+We can see that the model is overfitting to the training data and the accuracy on validation set is a little lower than on training set. The LeNet model is efficient and simple, many cnn architectures are inspired by it, like AlexNet.
 
-AlexNet
+[AlexNet.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/AlexNet.ipynb)
 ---
 
 My model is based on LeNet and it consists of the following layers:
