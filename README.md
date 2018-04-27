@@ -2,15 +2,14 @@
 
 Overview
 ---
-In this project, I will deep neural networks and convolutional neural networks to classify traffic signs. I will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, I will then try out my model on images of German traffic signs that you find on the web.
+In this project, I used deep neural networks and four classic convolutional neural network architectures to classify traffic signs. I will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, I will then try out my model on images of German traffic signs that I find on the web.
 
 The Project
 ---
 The goals / steps of this project are the following:
-* Load the data set
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
+* Load and explore the data set 
+* Realize LeNet architecture and use ReLu, mini-batch gradient descent and dropout. 
+* Use AlexNet to recognize traffic signs and use L2 regulization, learning rate decay and data augmentation to optimize it. 
 * Analyze the softmax probabilities of the new images
 * Summarize the results
 
@@ -29,6 +28,7 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 [//]: # (Image References)
 [image1]: ./result_images/trainingset.jpg "Visualization"
 [lenet]: ./result_images/lenet.png "lenet"
+[alexnet]: ./result_images/alexnet.png "alexnet"
 [image2]: ./test_images/1.jpg "Traffic Sign 1"
 [image3]: ./test_images/2.jpg "Traffic Sign 2"
 [image4]: ./test_images/3.jpg "Traffic Sign 3"
@@ -107,7 +107,11 @@ We can see that the model is overfitting to the training data and the accuracy o
 [AlexNet.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/AlexNet.ipynb)
 ---
 
-My model is based on LeNet and it consists of the following layers:
+[AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) is the first popularized CNN architecture in computer vision developed by Alex Krizhevsky, Geoffrey Hinton, and Ilya Sutskever. It is the champion of ImageNet ILSVRC challenge in 2012 and significantly outperformed the second runner-up. The AlexNet has a similar architecture with LeNet, but it is deeper and bigger.
+
+![alt text][alexnet]
+
+I realized AlexNet architecture for recognize traffic signs as the following table and I use three tricks to make the model work better:
 
 - L2 regulization
 - Learning rate decay
@@ -128,7 +132,6 @@ My model is based on LeNet and it consists of the following layers:
 | Fully connected		| output 43 probabilities for each lablel  		| 200       | 43          |
 
  
-My first architecure is LeNet, but it's performance is poor. In my opinion, it is bacause LeNet model doesn't include enough parameters. Therefore, , I add a convolutional layer and a fully connect layer to increase accuracy. Then, I find that the accuracy on training set is up to 97%, but that of testing set is under 93%, the model may be overfitting. So I add dropout to the first three fully connect layer, and successfully, the accuracy on testing set can reach 95%.
 
 
 Training 
@@ -137,10 +140,6 @@ I have turned the following three hyperparameters to train my model.
 * LEARNING_RATE = 0.0006
 * EPOCHS = 35
 * BATCH_SIZE = 128
-
-The suggestion for learning rate is 0.01, I decrease learning rate from 0.01 to 0.006, in case ignore the best point. And I increase epoch from 10 to 35, cause I think 10 epoch isn't enough to complete training.
-
-By the way, the docker image: udacity/carnd-term1-starter-kit are used for data preprossing and the docker image: gcr.io/tensorflow/tensorflow:latest-gpu is used for training.
 
 
 The results are:
