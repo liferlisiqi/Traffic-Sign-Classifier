@@ -39,7 +39,7 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 [image10]: ./test_images/9.jpg "Traffic Sign 9"
 [image11]: ./test_images/10.jpg "Traffic Sign 10"
 
-Data Set Summary & Exploration & Preprocessing
+[Data Preprocessing](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/Data%20pre-process.ipynb)
 ---
 
 I used the numpy library to calculate summary statistics of the traffic signs data set:
@@ -59,49 +59,45 @@ I didn't convert the images to grayscale as suggest in class, in my opinion, the
 So I normalized the image data from [0, 255] to [-1, 1], because well distributed data well accelate training operation and increase accuracy.
 
 
-LeNet
+[LeNet](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/LeNet.ipynb)
 ---
 
-My model is based on LeNet and it consists of the following layers:
+In the LeNet model, I realize valline cnn architecture and use three tricks as follows:
 
-- ReLu
-- Mini-batch gradient descent
-- Dropout
+- 1 ReLu
+ReLu nonlinear function is used as the activation function after the convolutional layer. More information about ReLu and other activation functions can be find at [Lecture 6 | Training Neural Networks I](https://www.youtube.com/watch?v=wEoyxE0GP2M&index=6&list=PLC1qU-LWwrF64f4QKQT-Vg5Wr4qEE1Zxk&t=0s).  
+- 2 Mini-batch gradient descent
+Mini-batch gradient descent is the combine of batch gradient descent and stochastic gradient descent, it is based on the statistics to estimate the average of gradient of all the training data by a batch of selected samples.
+- 3 Dropout
+Dropout is a regularization technique for reducing overfitting in neural networks by preventing complex co-adaptations on training data. It is proposed in the paper [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](http://219.216.82.193/cache/2/03/jmlr.org/9b2dcdb089f9b8f19cea175c9d6b5150/srivastava14a.pdf). It is usually after fully connected layers.
+
+My LeNet consists of the following layers:
 
 | Layer         		|     Description	        					| Input     | Output      |
 |:---------------------:|:---------------------------------------------:|:---------:|:-----------:| 
-| Convolution       	| kernel: 5x5; stride:1x1; padding: valid  	    | 32x32x3   | 28x28x9     |
-| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid 	    | 28x28x9   | 14x14x9     |
-| Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 14x14x9   | 12x12x32    |
-| Max pooling	      	| kernel: 2x2; stride:1x1; padding: valid  		| 12x12x32  | 10x10x32    |
-| Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 10x10x32  | 8x8x96      |
-| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid  	    | 8x8x96    | 4x4x96      |
-| Flatten				| Input 5x5x32 -> Output 800					| 4x4x96    | 1536        |
-| Fully connected		| connect every neurel with next layer 		    | 1536      | 800         |
-| Fully connected		| connect every neurel with next layer	        | 800       | 400         |
-| Fully connected		| connect every neurel with next layer  		| 400       | 200         |
-| Fully connected		| output 43 probabilities for each lablel  		| 200       | 43          |
-
- 
-My first architecure is LeNet, but it's performance is poor. In my opinion, it is bacause LeNet model doesn't include enough parameters. Therefore, , I add a convolutional layer and a fully connect layer to increase accuracy. Then, I find that the accuracy on training set is up to 97%, but that of testing set is under 93%, the model may be overfitting. So I add dropout to the first three fully connect layer, and successfully, the accuracy on testing set can reach 95%.
+| Convolution       	| kernel: 5x5; stride:1x1; padding: valid  	    | 32x32x3   | 28x28x6     |
+| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid 	    | 28x28x6   | 14x14x6     |
+| Convolution       	| kernel: 5x5; stride:1x1; padding: valid 	    | 14x14x6   | 10x10x16    |
+| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid  		| 10x10x16  | 5x5x16      |
+| Flatten				| Input 5x5x16 -> Output 400					| 5x5x16    | 400         |
+| Fully connected		| connect every neurel with next layer 		    | 400       | 120         |
+| Fully connected		| connect every neurel with next layer	        | 120       | 80          |
+| Fully connected		| output 43 probabilities for each lablel  		| 80        | 43          |
 
 
 Training 
 ---
 I have turned the following three hyperparameters to train my model.
-* LEARNING_RATE = 0.0006
-* EPOCHS = 35
-* BATCH_SIZE = 128
-
-The suggestion for learning rate is 0.01, I decrease learning rate from 0.01 to 0.006, in case ignore the best point. And I increase epoch from 10 to 35, cause I think 10 epoch isn't enough to complete training.
-
-By the way, the docker image: udacity/carnd-term1-starter-kit are used for data preprossing and the docker image: gcr.io/tensorflow/tensorflow:latest-gpu is used for training.
-
+LEARNING_RATE = 1e-2
+EPOCHS = 50
+BATCH_SIZE = 128
 
 The results are:
-* accuracy of training set: 99.7%
-* accuracy of validation set: 96.6%
-* accuracy of test set: 94.9%
+* accuracy of training set: 96.6%
+* accuracy of validation set: 92.0%
+* accuracy of test set: 89.7%
+
+We can see that the model is overfitting to the training data, it is not very good.
 
 AlexNet
 ---
