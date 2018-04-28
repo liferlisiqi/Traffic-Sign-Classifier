@@ -131,15 +131,14 @@ Cause the input dimension and output dimension of traffic signs recognition on G
  
 Apart from this, I have used following methods to make the model work better:
 
-
-- Learning rate decay
+- Learning rate decay  
 In training deep networks, when the learning rate is large, the system contains too much kinetic energy and the parameter vector bounces around chaotically, ubable to settle down into deeper; when the learning rate is small, you will be wasting computation bouncing around chaotically with little improvement for a long time. If the learning rate can decay from large to small while training, the network will move fast at the begining and improve little by little in the end. There are three commonly used types of method: step dacay, exponential decay and 1/t decay, more information can be found [here](http://cs231n.github.io/neural-networks-3/#anneal) and [here](https://zhuanlan.zhihu.com/p/32923584). Cause I use tensorflow to realize AlexNet and exponential dacay are used for learning decay, so I choose it as my method, its usage can be find [here](https://www.tensorflow.org/api_docs/python/tf/train/exponential_decay) is used to decay learning rate. Maybe it is not a good method, since there is tow more hyper parameters (decay_step and decay_rate) to tune. 
-- Adam optimization
+- Adam optimization  
 [Adam](https://arxiv.org/abs/1412.6980) is a popular optimization recently proposed by Diederik P. Kingma and Jimmy Ba, like previous proposed Adagrad and RMSprop, it is a kind of adaptive learning rate method. With Adam, we don't have to use learning rate decay and tune three parameters for perfect learning rate. It is fabilous, so I will use it in most of times. After adapting Adam, the accuracy for training set, validation set and testing set are 99.9%, 96.9% and 94.2% respectively. The model is a little overfitting to training set, so some regularization methods are used to reduce it.
-- L2 regulization
+- L2 regulization  
 L2 regulization is used to reduce overfitting by adding regulization loss to loss function, it is based on the assume that the bigger regulization loss is the more complex the model is. It is well known that complex model is more easily overfit to training set, thus, through reducing regulization loss to make the model simpler.
 The regulization loss is the sum of L2 norm of weights for each layer multiple regulization parameter `lambda` in most cases, `lambda` is a small positive number that controls the regulization degree. Tensorflow documetn for how to use l2 regulization can be find [here](https://www.tensorflow.org/api_docs/python/tf/nn/l2_loss).  
-- Data augmentation
+- Data augmentation  
 Another efficient method to reduce overfitting on image data is to artificially enlarge the dataset using label-preserving transformations
 
 Training 
