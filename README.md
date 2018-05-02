@@ -26,7 +26,8 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 
 
 [//]: # (Image References)
-[image1]: ./result_images/trainingset.jpg "Visualization"
+[exploratory]: ./result_images/exploratory.jpg "exploratory"
+[distribution]: ./result_images/distribution.jpg "distribution"
 [lenet]: ./result_images/lenet.png "lenet"
 [alexnet]: ./result_images/alexnet.png "alexnet"
 [image2]: ./test_images/1.jpg "Traffic Sign 1"
@@ -51,14 +52,12 @@ I used the numpy library to calculate summary statistics of the traffic signs da
 * The number of unique classes/labels in the data set is: 43
 
 
-Here is an exploratory visualization of the training data set. It is a bar chart showing how the data distributed.
+Here is an exploratory visualization of the training data set. 
+![alt text][exploratory]
 
-![alt text][image1]
+The distribution of training, validation and testing set is showing in the following bar charts.
 
-
-I didn't convert the images to grayscale as suggest in class, in my opinion, the RGB has more useful information than gray.  
-So I normalized the image data from [0, 255] to [-1, 1], because well distributed data well accelate training operation and increase accuracy.
-
+![alt text][distribution]
 
 [LeNet.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/LeNet.ipynb)
 ---
