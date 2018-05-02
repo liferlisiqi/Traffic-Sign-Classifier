@@ -149,7 +149,7 @@ I have turned the following three hyperparameters to train my model.
 * LAMBDA = 1e-5
 
 
-The results are:
+The results are:  
 | Dataset         		|   Accuracy	|
 |:---------------------:|:-------------:|
 | training set       	| 100.0%  	    |
