@@ -142,7 +142,7 @@ The regulization loss is the sum of L2 norm of weights for each layer multiple r
 Training 
 ---
 I have turned the following three hyperparameters to train my model.
-* LEARNING_RATE = 3e-4
+* LEARNING_RATE = 5e-4
 * EPOCHS = 30
 * BATCH_SIZE = 128
 * keep_prop = 0.5
@@ -150,15 +150,11 @@ I have turned the following three hyperparameters to train my model.
 
 
 The results are:
-* accuracy of training set: 99.7%
-* accuracy of validation set: 96.6%
-* accuracy of test set: 94.9%  
-
 | Dataset         		|   Accuracy	|
 |:---------------------:|:-------------:|
-| training set       	| 99.7%  	    |
-| validation set	    | 96.6% 	    |
-| testing set       	| 94.9% 	    |
+| training set       	| 100.0%  	    |
+| validation set	    | 96.0% 	    |
+| testing set       	| 94.6% 	    |
 
 Testing on new images
 ---
