@@ -148,13 +148,10 @@ I have turned the following three hyperparameters to train my model.
 * keep_prop = 0.5
 * LAMBDA = 1e-5
 
-
-The results are:  
-| Dataset         		|   Accuracy	|
-|:---------------------:|:-------------:|
-| training set       	| 100.0%  	    |
-| validation set	    | 96.0% 	    |
-| testing set       	| 94.6% 	    |
+The results are:
+* accuracy of training set: 100.0%
+* accuracy of validation set: 96.0%
+* accuracy of test set: 94.6%  
 
 Testing on new images
 ---
