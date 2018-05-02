@@ -138,8 +138,6 @@ In training deep networks, when the learning rate is large, the system contains 
 - L2 regulization  
 L2 regulization is used to reduce overfitting by adding regulization loss to loss function, it is based on the assume that the bigger regulization loss is the more complex the model is. It is well known that complex model is more easily overfit to training set, thus, through reducing regulization loss to make the model simpler.
 The regulization loss is the sum of L2 norm of weights for each layer multiple regulization parameter `lambda` in most cases, `lambda` is a small positive number that controls the regulization degree. Tensorflow documetn for how to use l2 regulization can be find [here](https://www.tensorflow.org/api_docs/python/tf/nn/l2_loss).  
-- Data augmentation  
-Another efficient method to reduce overfitting on image data is to artificially enlarge the dataset using label-preserving transformations
 
 Training 
 ---
