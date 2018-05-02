@@ -80,9 +80,9 @@ My LeNet consists of the following layers:
 | Layer         		|     Description	        					| Input     | Output      |
 |:---------------------:|:---------------------------------------------:|:---------:|:-----------:| 
 | Convolution       	| kernel: 5x5; stride:1x1; padding: valid  	    | 32x32x3   | 28x28x6     |
-| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid 	    | 28x28x6   | 14x14x6     |
+| Max pooling	      	| kernel: 2x2; stride:2x2;               	    | 28x28x6   | 14x14x6     |
 | Convolution       	| kernel: 5x5; stride:1x1; padding: valid 	    | 14x14x6   | 10x10x16    |
-| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid  		| 10x10x16  | 5x5x16      |
+| Max pooling	      	| kernel: 2x2; stride:2x2;                		| 10x10x16  | 5x5x16      |
 | Flatten				| Input 5x5x16 -> Output 400					| 5x5x16    | 400         |
 | Fully connected		| connect every neurel with next layer 		    | 400       | 120         |
 | Fully connected		| connect every neurel with next layer	        | 120       | 80          |
@@ -116,17 +116,17 @@ Cause the input dimension and output dimension of traffic signs recognition on G
 | Layer         		|     Description	        					| Input     | Output      |
 |:---------------------:|:---------------------------------------------:|:---------:|:-----------:| 
 | Convolution       	| kernel: 5x5; stride:1x1; padding: valid  	    | 32x32x3   | 28x28x9     |
-| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid 	    | 28x28x9   | 14x14x9     |
+| Max pooling	      	| kernel: 2x2; stride:2x2; 	                    | 28x28x9   | 14x14x9     |
 | Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 14x14x9   | 12x12x32    |
-| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid  		| 12x12x32  | 10x10x32    |
-| Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 10x10x32  | 8x8x96      |
-| Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 10x10x32  | 8x8x96      |
-| Convolution       	| kernel: 3x3; stride:1x1; padding: valid 	    | 10x10x32  | 8x8x96      |
-| Max pooling	      	| kernel: 2x2; stride:2x2; padding: valid  	    | 8x8x96    | 4x4x96      |
-| Flatten				| Input 5x5x32 -> Output 800					| 4x4x96    | 1536        |
-| Fully connected		| connect every neurel with next layer 		    | 1536      | 800         |
-| Fully connected		| connect every neurel with next layer	        | 800       | 400         |
-| Fully connected		| output 43 probabilities for each lablel  		| 200       | 43          |
+| Max pooling	      	| kernel: 2x2; stride:2x2;  		            | 12x12x32  | 6x6x32      |
+| Convolution       	| kernel: 3x3; stride:1x1; padding: same 	    | 6x6x32    | 6x6x48      |
+| Convolution       	| kernel: 3x3; stride:1x1; padding: same 	    | 6x6x48    | 6x6x64      |
+| Convolution       	| kernel: 3x3; stride:1x1; padding: same 	    | 6x6x64    | 6x6x96      |
+| Max pooling	      	| kernel: 2x2; stride:2x2;  	                | 6x6x96    | 3x3x96      |
+| Flatten				| Input 3x3x96 -> Output 864					| 3x3x96    | 864         |
+| Fully connected		| connect every neurel with next layer 		    | 864       | 400         |
+| Fully connected		| connect every neurel with next layer	        | 400       | 160         |
+| Fully connected		| output 43 probabilities for each lablel  		| 160       | 43          |
 
  
 Apart from this, I have used following methods to make the model work better:
