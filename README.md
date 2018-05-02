@@ -7,9 +7,9 @@ In this project, I used deep neural networks and four classic convolutional neur
 The Project
 ---
 The goals / steps of this project are the following:
-* Load and explore the data set 
-* Realize LeNet architecture and use ReLu, mini-batch gradient descent and dropout. 
-* Use AlexNet to recognize traffic signs and use L2 regulization, learning rate decay and data augmentation to optimize it. 
+* Load and explore the data set.
+* Realize LeNet architecture and use `ReLu`, `mini-batch gradient descent` and `dropout`. 
+* Realize AlexNet and make some modifications, use `learning rate decay`, `Adam optimization` and `L2 regulization`. 
 * Analyze the softmax probabilities of the new images
 * Summarize the results
 
@@ -30,6 +30,8 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 [distribution]: ./result_images/distribution.jpg "distribution"
 [lenet]: ./result_images/lenet.png "lenet"
 [alexnet]: ./result_images/alexnet.png "alexnet"
+[inception]: ./result_images/inception.jpg "inception"
+[googlenet]: ./result_images/googlenet.png "googlenet"
 [image2]: ./test_images/1.jpg "Traffic Sign 1"
 [image3]: ./test_images/2.jpg "Traffic Sign 2"
 [image4]: ./test_images/3.jpg "Traffic Sign 3"
@@ -51,12 +53,10 @@ I used the numpy library to calculate summary statistics of the traffic signs da
 * The shape of a traffic sign image is: (32, 32 ,3)
 * The number of unique classes/labels in the data set is: 43
 
-
 Here is an exploratory visualization of the training data set. 
 ![alt text][exploratory]
 
 The distribution of training, validation and testing set is showing in the following bar charts.
-
 ![alt text][distribution]
 
 [LeNet.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/LeNet.ipynb)
@@ -152,7 +152,12 @@ The results are:
 * accuracy of validation set: 96.0%
 * accuracy of test set: 94.6%  
 
-
+[GoogLeNet.ipynb](https://github.com/liferlisiqi/Traffic-Sign-Classifier/blob/master/GoogLeNet.ipynb)
+---
+[GoogLeNet](https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf) was the winner of the ILSVRC 2014, it main contribution was the development of `Inception Module` that dramatically reduced the number of parameters in the network.   
+![alt text][inception]
+Additionally, this paper uses `Average Pooling` instead of `Fully connected layer` at the top of the ConvNet, eliminating a large amount of parameters that do not seem to matter much.
+![alt text][googlenet]
 
 References
 ---
