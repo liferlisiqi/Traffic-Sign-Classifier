@@ -31,7 +31,7 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 [lenet]: ./result_images/lenet.png "lenet"
 [alexnet]: ./result_images/alexnet.png "alexnet"
 [inception]: ./result_images/inception.jpg "inception"
-[googlenet]: ./result_images/googlenet.png "googlenet"
+[googlenet]: ./result_images/Googlenet.png "googlenet"
 [image2]: ./test_images/1.jpg "Traffic Sign 1"
 [image3]: ./test_images/2.jpg "Traffic Sign 2"
 [image4]: ./test_images/3.jpg "Traffic Sign 3"
@@ -159,6 +159,25 @@ The results are:
 Additionally, this paper uses `Average Pooling` instead of `Fully connected layer` at the top of the ConvNet, eliminating a large amount of parameters that do not seem to matter much. The overall architecture of GoogLeNet is as the following table.
 ![alt text][googlenet]  
 
+The original architecture of GoogLeNet is a little hard to train by my GPU, so I choose to reduce the number of layers from 22 to 14, the details of network is showing in the following table.
+
+| Type          | Kernel/Stride/Padding	| Output    | Params      |
+|:-------------:|:---------------------:|:---------:|:-----------:|
+| conv          | 3x3; 1x1; same  	    | 32x32x3   | 28x28x9     |
+| max pool	    | 3x3; 2x2; 	        | 16x16x9   | 14x14x9     |
+| inception(2a) | 3x3; 1x1; valid 	    | 16x16x9   | 12x12x32    |
+| inception(2b)	| 2x2; 2x2;  		    | 16x16x32  | 6x6x32      |
+| max pool    	| 3x3; 2x2; same 	    | 7x7x32    | 6x6x48      |
+| inception(3a) | 3x3; 1x1; same 	    | 7x7x48    | 6x6x64      |
+| inception(3a) | 3x3; 1x1; same 	    | 7x7x64    | 6x6x96      |
+| max pool 	    | 2x2; 2x2;  	        | 3x3x96    | 3x3x96      |
+| inception(4a) | 3x3; 1x1; same 	    | 3x3x48    | 6x6x64      |
+| inception(4a) | 3x3; 1x1; same 	    | 3x3x64    | 6x6x96      |
+| avg pool 	    | 2x2; 2x2;  	        | 3x3x96    | 3x3x96      |
+| flatten	    | 864					| 1x1x96    | 864         |
+| full		    |  		                | 864       | 400         |
+
+[Inception modules: explained and implemented](https://hacktilldawn.com/2016/09/25/inception-modules-explained-and-implemented/)
 
 References
 ---
