@@ -31,7 +31,7 @@ Download the [data set](https://d17h27t6h515a5.cloudfront.net/topher/2017/Februa
 [lenet]: ./result_images/lenet.png "lenet"
 [alexnet]: ./result_images/alexnet.png "alexnet"
 [inception]: ./result_images/inception.jpg "inception"
-[googlenet]: ./result_images/googlenet.png "googlenet"
+[googlenet]: ./result_images/GoogLeNet.png "googlenet"
 [image2]: ./test_images/1.jpg "Traffic Sign 1"
 [image3]: ./test_images/2.jpg "Traffic Sign 2"
 [image4]: ./test_images/3.jpg "Traffic Sign 3"
