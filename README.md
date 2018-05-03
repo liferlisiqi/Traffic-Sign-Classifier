@@ -178,7 +178,13 @@ The original architecture of GoogLeNet is a little hard to train by my GPU, so I
 | flatten	    | 864					| 1x1x96    | 864         |
 | full		    |  		                | 864       | 400         |
 
-[Inception modules: explained and implemented](https://hacktilldawn.com/2016/09/25/inception-modules-explained-and-implemented/)
+Some details for this architecture is as following:
+- Inception Module  
+The inception module is the core of this architecture, it is driven by two disadvantage of previous architecture: a large amount of parameters which lead to overfitting and dramatically use of computational resources. It's navie implement doesn't have 1x1 conv before/after 3x3 conv, 5x5 conv and max pooling layer. The reason why adding 1x1 convolutional layer is that it can reduce the depth of the output from previous layer, therefore, the amount of operations can be significantly reduced. More details can be found in [Going deeper with convolutions](https://arxiv.org/pdf/1409.4842.pdf). Since max pooling will reduce the shape of input feature map, so I realize it by padding with zeros and another implement can look [here](https://hacktilldawn.com/2016/09/25/inception-modules-explained-and-implemented/).
+- overlapping max pooling  
+
+- average pooling  
+
 
 References
 ---
@@ -186,4 +192,7 @@ References
 [Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition](https://www.sciencedirect.com/science/article/pii/S0893608012000457?via%3Dihub)  
 [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://219.216.82.193/cache/13/03/yann.lecun.com/a46bf8e4b17c2a9e46a2a899a68a0a0d/sermanet-ijcnn-11.pdf)  
 [The German Traffic Sign Recognition Benchmark: A multi-class classification competition](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6033395)  
-[ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)  
+[ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+[Gradient-Based Learning Applied to Document Recognition](http://219.216.82.193/cache/10/03/yann.lecun.com/b1a1c4acb57f1b447bfe36e103910875/lecun-01a.pdf)
+[ImageNet Classification with Deep Convolutional Neural Networks](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+[Going deeper with convolutions](https://arxiv.org/pdf/1409.4842.pdf)  
