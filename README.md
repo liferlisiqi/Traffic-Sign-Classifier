@@ -194,8 +194,8 @@ I have turned the following three hyperparameters to train my model.
 
 The results are:
 * accuracy of training set: 100.0%
-* accuracy of validation set: 96.0%
-* accuracy of test set: 94.6% 
+* accuracy of validation set: 98.5%
+* accuracy of test set: 98.1% 
 
 
 References
