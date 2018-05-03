@@ -163,17 +163,17 @@ The original architecture of GoogLeNet is a little hard to train by my GPU, so I
 
 | Type          | Kernel/Stride/Padding	| Output    | Params      |
 |:-------------:|:---------------------:|:---------:|:-----------:|
-| conv          | 3x3; 1x1; same  	    | 32x32x3   | 28x28x9     |
-| max pool	    | 3x3; 2x2; 	        | 16x16x9   | 14x14x9     |
-| inception(2a) | 3x3; 1x1; valid 	    | 16x16x9   | 12x12x32    |
-| inception(2b)	| 2x2; 2x2;  		    | 16x16x32  | 6x6x32      |
-| max pool    	| 3x3; 2x2; same 	    | 7x7x32    | 6x6x48      |
-| inception(3a) | 3x3; 1x1; same 	    | 7x7x48    | 6x6x64      |
-| inception(3a) | 3x3; 1x1; same 	    | 7x7x64    | 6x6x96      |
-| max pool 	    | 2x2; 2x2;  	        | 3x3x96    | 3x3x96      |
-| inception(4a) | 3x3; 1x1; same 	    | 3x3x48    | 6x6x64      |
-| inception(4a) | 3x3; 1x1; same 	    | 3x3x64    | 6x6x96      |
-| avg pool 	    | 2x2; 2x2;  	        | 3x3x96    | 3x3x96      |
+| conv          | 3x3 / 1x1 / same  	| 32x32x3   | 28x28x9     |
+| max pool	    | 3x3 / 2x2 / 	        | 16x16x9   | 14x14x9     |
+| inception(2a) | 3x3 / 1x1 / valid     | 16x16x9   | 12x12x32    |
+| inception(2b)	| 2x2 / 2x2  		    | 16x16x32  | 6x6x32      |
+| max pool    	| 3x3 / 2x2 / same 	    | 7x7x32    | 6x6x48      |
+| inception(3a) | 3x3 / 1x1 / same 	    | 7x7x48    | 6x6x64      |
+| inception(3a) | 3x3 / 1x1 / same 	    | 7x7x64    | 6x6x96      |
+| max pool 	    | 2x2 / 2x2  	        | 3x3x96    | 3x3x96      |
+| inception(4a) | 3x3 / 1x1 / same 	    | 3x3x48    | 6x6x64      |
+| inception(4a) | 3x3 / 1x1 / same 	    | 3x3x64    | 6x6x96      |
+| avg pool 	    | 2x2 / 2x2  	        | 3x3x96    | 3x3x96      |
 | flatten	    | 864					| 1x1x96    | 864         |
 | full		    |  		                | 864       | 400         |
 
