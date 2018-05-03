@@ -157,6 +157,7 @@ The results are:
 [GoogLeNet](https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf) was the winner of the ILSVRC 2014, it main contribution was the development of `Inception Module` that dramatically reduced the number of parameters in the network.   
 ![alt text][inception]  
 Additionally, this paper uses `Average Pooling` instead of `Fully connected layer` at the top of the ConvNet, eliminating a large amount of parameters that do not seem to matter much. The overall architecture of GoogLeNet is as the following table.  
+
 ![alt text][googlenet]  
 
 The original architecture of GoogLeNet is a little hard to train by my GPU, so I choose to reduce the number of layers from 22 to 14, the details of network is showing in the following table.
