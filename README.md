@@ -162,28 +162,40 @@ Additionally, this paper uses `Average Pooling` instead of `Fully connected laye
 
 The original architecture of GoogLeNet is a little hard to train by my GPU, so I choose to reduce the number of layers from 22 to 14, the details of network is showing in the following table.
 
-| Type          | Kernel/Stride/Padding	| Output    | Params      |
-|:-------------:|:---------------------:|:---------:|:-----------:|
-| conv          | 3x3 / 1x1 / same  	| 32x32x3   | 28x28x9     |
-| max pool	    | 3x3 / 2x2 / 	        | 16x16x9   | 14x14x9     |
-| inception(2a) | 3x3 / 1x1 / valid     | 16x16x9   | 12x12x32    |
-| inception(2b)	| 2x2 / 2x2  		    | 16x16x32  | 6x6x32      |
-| max pool    	| 3x3 / 2x2 / same 	    | 7x7x32    | 6x6x48      |
-| inception(3a) | 3x3 / 1x1 / same 	    | 7x7x48    | 6x6x64      |
-| inception(3a) | 3x3 / 1x1 / same 	    | 7x7x64    | 6x6x96      |
-| max pool 	    | 2x2 / 2x2  	        | 3x3x96    | 3x3x96      |
-| inception(4a) | 3x3 / 1x1 / same 	    | 3x3x48    | 6x6x64      |
-| inception(4a) | 3x3 / 1x1 / same 	    | 3x3x64    | 6x6x96      |
-| avg pool 	    | 2x2 / 2x2  	        | 3x3x96    | 3x3x96      |
-| flatten	    | 864					| 1x1x96    | 864         |
-| full		    |  		                | 864       | 400         |
+| Type          | Z/S/P	        | Output    | Parameters  | Operations  |
+|:-------------:|:-------------:|:---------:|:-----------:|:-----------:|
+| conv          | 3x3/1x1/same  | 32x32x64  | 1,792            | 28x28x9     |
+| max pool	    | 3x3/2x2 	    | 16x16x64  |             | 14x14x9     |
+| inception(2a) |               | 16x16x256 |             | 12x12x32    |
+| inception(2b)	|               | 16x16x480 |             | 6x6x32      |
+| max pool    	| 3x3/2x2      	| 7x7x480   |             | 6x6x48      |
+| inception(3a) |  	            | 7x7x512   |             | 6x6x64      |
+| inception(3a) |  	            | 7x7x512   |             | 6x6x96      |
+| max pool 	    | 3x3/2x2  	    | 3x3x512   |             | 3x3x96      |
+| inception(4a) |  	            | 3x3x832   |             | 6x6x64      |
+| inception(4a) |  	            | 3x3x1024  |             | 6x6x96      |
+| avg pool 	    | 3x3/1x1  	    | 1x1x1024  |             | 3x3x96      |
+| flatten	    | 864			| 1024      |             | 864         |
+| full		    | 43            | 43        | 44,032      | 400         |
 
 Some details for this architecture is as following:
 - Inception Module  
 The inception module is the core of this architecture, it is driven by two disadvantage of previous architecture: a large amount of parameters which lead to overfitting and dramatically use of computational resources. It's navie implement doesn't have 1x1 conv before/after 3x3 conv, 5x5 conv and max pooling layer. The reason why adding 1x1 convolutional layer is that it can reduce the depth of the output from previous layer, therefore, the amount of operations can be significantly reduced. More details can be found in [Going deeper with convolutions](https://arxiv.org/pdf/1409.4842.pdf). Since max pooling will reduce the shape of input feature map, so I realize it by padding with zeros and another implement can look [here](https://hacktilldawn.com/2016/09/25/inception-modules-explained-and-implemented/).
-- overlapping max pooling  
+- Overlapping pooling  
+The normal pooling operation is with kernel size = 2 and stride = 2, and the overlapping pooling means kernel size > stride, like kernel size = 3 and stride = 2, thus there will be overlapping fields. According to `ImageNet Classification with Deep Convolutional Neural Networks`, overlapping pooling can slightly reduce the error rates compared to non-overlapping and make the model more difficult to overfit. 
 
-- average pooling  
+Training 
+---
+I have turned the following three hyperparameters to train my model.
+* LEARNING_RATE = 5e-4
+* EPOCHS = 35
+* BATCH_SIZE = 128
+* keep_prop = 0.5
+
+The results are:
+* accuracy of training set: 100.0%
+* accuracy of validation set: 96.0%
+* accuracy of test set: 94.6% 
 
 
 References
