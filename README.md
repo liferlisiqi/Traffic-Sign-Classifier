@@ -1,12 +1,9 @@
 # Traffic Sign Classification
 
-Overview
----
+### Overview
 In this project, I used deep neural networks and three classic convolutional neural network architectures(LeNet, AlexNet and GoogLeNet) to classify traffic signs. I will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, I will then try out my model on images of German traffic signs that I find on the web.
 
-The Project
----
-The goals / steps of this project are the following:
+### The goals / steps of this project are the following:
 * Load and explore the data set.
 * Realize LeNet architecture and use `ReLu`, `mini-batch gradient descent` and `dropout`. 
 * Realize AlexNet and make some modifications, use `learning rate decay`, `Adam optimization` and `L2 regulization`. 
@@ -88,8 +85,7 @@ My LeNet consists of the following layers:
 | Fully connected		| output 43 probabilities for each lablel  		| 80        | 43          |
 
 
-Training 
----
+### Training 
 I have turned the following three hyperparameters to train my model.  
 LEARNING_RATE = 1e-2  
 EPOCHS = 50  
@@ -138,8 +134,7 @@ In training deep networks, when the learning rate is large, the system contains 
 L2 regulization is used to reduce overfitting by adding regulization loss to loss function, it is based on the assume that the bigger regulization loss is the more complex the model is. It is well known that complex model is more easily overfit to training set, thus, through reducing regulization loss to make the model simpler.
 The regulization loss is the sum of L2 norm of weights for each layer multiple regulization parameter `lambda` in most cases, `lambda` is a small positive number that controls the regulization degree. Tensorflow documetn for how to use l2 regulization can be find [here](https://www.tensorflow.org/api_docs/python/tf/nn/l2_loss).  
 
-Training 
----
+### Training 
 I have turned the following three hyperparameters to train my model.
 * LEARNING_RATE = 5e-4
 * EPOCHS = 30
@@ -183,8 +178,7 @@ The inception module is the core of this architecture, it is driven by two disad
 - Overlapping pooling  
 The normal pooling operation is with kernel size = 2 and stride = 2, and the overlapping pooling means kernel size > stride, like kernel size = 3 and stride = 2, thus there will be overlapping fields. According to [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://219.216.82.193/cache/13/03/yann.lecun.com/a46bf8e4b17c2a9e46a2a899a68a0a0d/sermanet-ijcnn-11.pdf), overlapping pooling can slightly reduce the error rates compared to non-overlapping and make the model more difficult to overfit. 
 
-Training 
----
+### Training 
 I have turned the following three hyperparameters to train my model.
 * LEARNING_RATE = 5e-4
 * EPOCHS = 35
@@ -196,6 +190,9 @@ The results are:
 * accuracy of validation set: 98.5%
 * accuracy of test set: 98.1% 
 
+Summary
+---
+In this project, I use three classific CNN architecture to recognize traffic signs from GTSRB, they are LeNet, AlexNet and GoogLeNet. Since the original architecture may no be suit for images from GRSRB, so I made some changes to them. In addition, I use some methods and tricks to train the model, like mini-batch gradient descent, Adam optimization, L2 regularization, learning rate decay and so on. Finally, ten online traffic images are used to test my model, result shows that it work very well, all the ten signs are perfected recognized.
 
 References
 ---
