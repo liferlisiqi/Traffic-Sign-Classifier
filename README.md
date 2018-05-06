@@ -7,6 +7,7 @@ In this project, I used deep neural networks and three classic convolutional neu
 * Load and explore the data set.
 * Realize LeNet architecture and use `ReLu`, `mini-batch gradient descent` and `dropout`. 
 * Realize AlexNet and make some modifications, use `learning rate decay`, `Adam optimization` and `L2 regulization`. 
+* Reproduce GoogLeNet and make some modifications, use `inception` and `overlapping pooling` and `average pooling`. 
 * Analyze the softmax probabilities of the new images
 * Summarize the results
 
